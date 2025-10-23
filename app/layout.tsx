@@ -4,6 +4,7 @@ import './globals.css';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import TanStackProvider from '@/components/TanStackProvider/TanStackProvider';
+import AuthProvider from '@/components/AuthProvider/AuthProvider';
 
 const roboto = Roboto({
   weight: ['400', '700'],
@@ -13,13 +14,13 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: '08-zustand',
+  title: '09-Auth',
   description: 'Note-taking app',
   openGraph: {
-    title: '08-zustand',
+    title: '09-Auth',
     description: 'Note-taking app',
     url: `https://08-zustand-eight-xi.vercel.app/`,
-    siteName: '08-zustand',
+    siteName: '09-Auth',
     images: [
       {
         url: 'https://ac.goit.global/fullstack/react/og-meta.jpg',
@@ -43,11 +44,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={roboto.variable}>
         <TanStackProvider>
+          <AuthProvider>
           <Header />
 
           {children}
           {modal}
-          <Footer />
+            <Footer />
+        </AuthProvider>
         </TanStackProvider>
       </body>
     </html>

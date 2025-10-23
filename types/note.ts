@@ -19,3 +19,4 @@ export interface CreateNoteRequest {
   content: string;
   tag: NoteTag;
 }
+

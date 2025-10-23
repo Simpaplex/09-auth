@@ -3,8 +3,8 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import type { Note } from '../../types/note';
 import styles from './NoteList.module.css';
 import toast from 'react-hot-toast';
-import { deleteNote } from '@/lib/api';
 import Link from 'next/link';
+import { deleteNote } from '@/lib/api/clientApi';
 
 interface NoteListProps {
   notes: Note[];

@@ -1,11 +1,15 @@
-import { fetchNoteById } from "@/lib/api";
-import NoteDetailsClient from "./NoteDetails.client";
-import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
-import styles from "./NoteDetails.module.css"
-import { Metadata } from "next";
+import NoteDetailsClient from './NoteDetails.client';
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from '@tanstack/react-query';
+import styles from './NoteDetails.module.css';
+import { Metadata } from 'next';
+import { fetchNoteById } from '@/lib/api/clientApi';
 
-interface NoteDetailsProps{
-  params: Promise<{ id: string }>
+interface NoteDetailsProps {
+  params: Promise<{ id: string }>;
 }
 
 export async function generateMetadata({
@@ -22,7 +26,7 @@ export async function generateMetadata({
       title: `Note: ${note.title}`,
       description: note.content.slice(0, 100),
       url: `https://08-zustand-eight-xi.vercel.app/notes/${id}`,
-      siteName: '08-zustand',
+      siteName: '09-Auth',
       images: [
         {
           url: 'https://ac.goit.global/fullstack/react/og-meta.jpg',
@@ -44,9 +48,8 @@ export default async function NoteDetails({ params }: NoteDetailsProps) {
   await queryClient.prefetchQuery({
     queryKey: ['note', id],
     queryFn: () => fetchNoteById(id),
-  }
-  )
-  
+  });
+
   return (
     <div className={styles.container}>
       <div className={styles.item}>
@@ -56,5 +59,4 @@ export default async function NoteDetails({ params }: NoteDetailsProps) {
       </div>
     </div>
   );
-  
 }

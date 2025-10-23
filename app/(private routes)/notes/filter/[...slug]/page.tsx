@@ -1,5 +1,4 @@
 import styles from './NotesPage.module.css';
-import { fetchNotes } from '@/lib/api';
 import {
   dehydrate,
   HydrationBoundary,
@@ -7,12 +6,15 @@ import {
 } from '@tanstack/react-query';
 import NotesClient from './Notes.client';
 import { Metadata } from 'next';
+import { fetchNotes } from '@/lib/api/clientApi';
 
 interface notesProps {
   params: Promise<{ slug: string[] }>;
 }
 
-export async function generateMetadata({ params }: notesProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: notesProps): Promise<Metadata> {
   const { slug } = await params;
   const [tag] = slug;
   const noteTag = tag === 'All' ? 'All notes' : tag;
@@ -24,7 +26,7 @@ export async function generateMetadata({ params }: notesProps): Promise<Metadata
       title: `Note tag: ${noteTag}`,
       description: `Page with selected notes by tag ${noteTag}`,
       url: `https://08-zustand-eight-xi.vercel.app/notes/filter/${noteTag}`,
-      siteName: '08-zustand',
+      siteName: '09-Auth',
       images: [
         {
           url: '/note_list.jpg',

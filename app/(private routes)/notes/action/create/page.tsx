@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: `Create Note`,
     description: 'Page for note creation form',
     url: 'https://08-zustand-eight-xi.vercel.app/notes/action/create',
-    siteName: '08-zustand',
+    siteName: '09-Auth',
     images: [
       {
         url: '/create_note.jpg',

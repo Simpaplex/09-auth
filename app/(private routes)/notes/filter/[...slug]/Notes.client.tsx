@@ -6,13 +6,13 @@ import { keepPreviousData, useQuery } from '@tanstack/react-query';
 import styles from './NotesPage.module.css';
 import SearchBox from '@/components/SearchBox/SearchBox';
 import { useState } from 'react';
-import { fetchNotes } from '@/lib/api';
 import Pagination from '@/components/Pagination/Pagination';
 import { useDebouncedCallback } from 'use-debounce';
 // import NoteForm from '@/components/NoteForm/NoteForm';
 import { Toaster } from 'react-hot-toast';
 import Loader from '@/components/Loader/Loader';
 import Link from 'next/link';
+import { fetchNotes } from '@/lib/api/clientApi';
 
 interface NotesClientProps {
   noteTag: string | undefined;
@@ -55,9 +55,7 @@ export default function NotesClient({ noteTag }: NotesClientProps) {
         )}
 
         {
-          <Link
-            href="/notes/action/create"
-            className={styles.button}>
+          <Link href="/notes/action/create" className={styles.button}>
             Create note +
           </Link>
         }

@@ -1,15 +1,13 @@
-"use client"
+'use client';
 
 import css from './NoteForm.module.css';
 import * as Yup from 'yup';
 import type { CreateNoteRequest, NoteTag } from '../../types/note';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
-import { createNote } from '@/lib/api';
 import { useRouter } from 'next/navigation';
 import { useNoteDraft } from '@/lib/store/noteStore';
-
-
+import { createNote } from '@/lib/api/clientApi';
 
 interface NoteFormValues {
   title: string;
@@ -35,7 +33,6 @@ const NoteFormSchema = Yup.object().shape({
 });
 
 function NoteForm() {
-  
   const router = useRouter();
   const handleCancel = () => router.back();
 
@@ -71,14 +68,10 @@ function NoteForm() {
     },
   });
 
-  
   const handleSubmit = (formData: FormData) => {
     const values = Object.fromEntries(formData) as unknown as CreateNoteRequest;
-    
+
     mutation.mutate(values);
-
-
-  
   };
 
   return (
