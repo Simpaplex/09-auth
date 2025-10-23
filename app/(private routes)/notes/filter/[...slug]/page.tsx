@@ -6,7 +6,7 @@ import {
 } from '@tanstack/react-query';
 import NotesClient from './Notes.client';
 import { Metadata } from 'next';
-import { fetchNotes } from '@/lib/api/clientApi';
+import { fetchServerNotes } from '@/lib/api/serverApi';
 
 interface notesProps {
   params: Promise<{ slug: string[] }>;
@@ -25,7 +25,7 @@ export async function generateMetadata({
     openGraph: {
       title: `Note tag: ${noteTag}`,
       description: `Page with selected notes by tag ${noteTag}`,
-      url: `https://08-zustand-eight-xi.vercel.app/notes/filter/${noteTag}`,
+      url: `https://09-auth-iota-taupe.vercel.app/notes/filter/${noteTag}`,
       siteName: '09-Auth',
       images: [
         {
@@ -52,7 +52,7 @@ export default async function Notes({ params }: notesProps) {
 
   await queryClient.prefetchQuery({
     queryKey: ['notesList', searchValue, currentPage, noteTag],
-    queryFn: () => fetchNotes(searchValue, currentPage, noteTag),
+    queryFn: () => fetchServerNotes(searchValue, currentPage, noteTag),
   });
 
   return (

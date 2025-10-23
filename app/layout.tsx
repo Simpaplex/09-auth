@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: '09-Auth',
     description: 'Note-taking app',
-    url: `https://08-zustand-eight-xi.vercel.app/`,
+    url: `https://09-auth-iota-taupe.vercel.app/`,
     siteName: '09-Auth',
     images: [
       {

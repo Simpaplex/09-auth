@@ -3,6 +3,28 @@ import { getServerMe } from "@/lib/api/serverApi";
 import styles from "./ProfilePage.module.css"
 import Link from "next/link";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: `Profile Page`,
+  description: 'User data page',
+  openGraph: {
+    title: `Profile Page`,
+    description: 'User data page',
+    url: 'https://09-auth-iota-taupe.vercel.app/profile',
+    siteName: '09-Auth',
+    images: [
+      {
+        url: '/users_profile.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'profile page',
+      },
+    ],
+    type: 'article',
+  },
+};
+
 
 const ProfilePage = async () => {
   

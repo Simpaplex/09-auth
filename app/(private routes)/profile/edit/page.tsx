@@ -62,6 +62,7 @@ function EditProfilePage() {
                 id="username"
                 name="userName"
                 type="text"
+                placeholder={user.username}
                 className={styles.input}
               />
             </div>

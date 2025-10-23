@@ -8,7 +8,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Page Not Found',
     description: 'This page does not exist or has been moved.',
-    // url: `https://08-zustand-eight-xi.vercel.app/`,
     siteName: '09-Auth',
     images: [
       {

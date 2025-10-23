@@ -7,6 +7,7 @@ import {
 import styles from './NoteDetails.module.css';
 import { Metadata } from 'next';
 import { fetchNoteById } from '@/lib/api/clientApi';
+import { fetchServerNoteById } from '@/lib/api/serverApi';
 
 interface NoteDetailsProps {
   params: Promise<{ id: string }>;
@@ -17,7 +18,7 @@ export async function generateMetadata({
 }: NoteDetailsProps): Promise<Metadata> {
   const { id } = await params;
 
-  const note = await fetchNoteById(id);
+  const note = await fetchServerNoteById(id);
 
   return {
     title: `Note: ${note.title}`,
@@ -25,7 +26,7 @@ export async function generateMetadata({
     openGraph: {
       title: `Note: ${note.title}`,
       description: note.content.slice(0, 100),
-      url: `https://08-zustand-eight-xi.vercel.app/notes/${id}`,
+      url: `https://09-auth-iota-taupe.vercel.app/notes/${id}`,
       siteName: '09-Auth',
       images: [
         {
