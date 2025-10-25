@@ -6,7 +6,6 @@ import {
 } from '@tanstack/react-query';
 import styles from './NoteDetails.module.css';
 import { Metadata } from 'next';
-import { fetchNoteById } from '@/lib/api/clientApi';
 import { fetchServerNoteById } from '@/lib/api/serverApi';
 
 interface NoteDetailsProps {
@@ -48,7 +47,7 @@ export default async function NoteDetails({ params }: NoteDetailsProps) {
 
   await queryClient.prefetchQuery({
     queryKey: ['note', id],
-    queryFn: () => fetchNoteById(id),
+    queryFn: () => fetchServerNoteById(id),
   });
 
   return (

@@ -55,13 +55,13 @@ function NoteForm() {
 
   const mutation = useMutation({
     mutationFn: (newNote: CreateNoteRequest) => createNote(newNote),
-    onSuccess: () => {
+    onSuccess: async () => {
       toast.success('Note successfully uploaded');
-      queryClient.invalidateQueries({
+      await queryClient.invalidateQueries({
         queryKey: ['notesList'],
       });
       clearDraft();
-      router.back();
+      router.push('/notes/filter/All');
     },
     onError: error => {
       toast.error(`${error.message}`);

@@ -31,7 +31,7 @@ const AuthNavigation = () => {
         </Link>
       </li>
       <li className={styles.navigationItem}>
-        <p className={styles.userEmail}>{user?.email}</p>
+        <p className={styles.userEmail}>{user?.username}</p>
         <button className={styles.logoutButton} onClick={handleLogout}>
           Logout
         </button>

@@ -27,7 +27,7 @@ function EditProfilePage() {
   });
 
   const handleSubmit = (formData: FormData) => {
-    const newUserName = formData.get('userName') as string;
+    const newUserName = formData.get('username') as string;
     if (newUserName === '') {
       toast.error('Username must be more than one character');
       return;
@@ -60,9 +60,9 @@ function EditProfilePage() {
               <label htmlFor="username">Username:</label>
               <input
                 id="username"
-                name="userName"
+                name="username"
                 type="text"
-                placeholder={user.username}
+                defaultValue={user.username}
                 className={styles.input}
               />
             </div>
