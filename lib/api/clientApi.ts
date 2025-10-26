@@ -64,12 +64,12 @@ async function logIn(body: LoginRequest) {
 }
 
 
-export interface SessionResponce {
+export interface SessionResponse {
   success: boolean;
 }
 
 async function checkSession() {
-  const {data} = await nextServer.get<SessionResponce>('/auth/session');
+  const {data} = await nextServer.get<SessionResponse>('/auth/session');
 
   return data.success;
 }

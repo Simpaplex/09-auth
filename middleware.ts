@@ -65,6 +65,8 @@ export async function middleware(request: NextRequest) {
     if (isPrivateRoute) {
       return NextResponse.redirect(new URL('/sign-in', request.url));
     }
+
+    return NextResponse.next();
   }
 
   // Якщо accessToken існує:
